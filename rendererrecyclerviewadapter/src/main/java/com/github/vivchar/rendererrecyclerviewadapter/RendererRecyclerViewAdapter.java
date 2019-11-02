@@ -88,22 +88,12 @@ public class RendererRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder
 	}
 
 	@Override
-	public void onBindViewHolder(final ViewHolder holder, final int position) {}
-
-	@Override
-	public void onBindViewHolder(final ViewHolder holder, final int position, @Nullable final List payloads) {
-		super.onBindViewHolder(holder, position, payloads);
+	public void onBindViewHolder(final ViewHolder holder, final int position) {
 		final ViewModel item = getItem(position);
 		final ViewRenderer renderer = getRenderer(item);
 
-		if (payloads == null || payloads.isEmpty()) {
-			/* Full bind */
-			renderer.performBindView(item, holder);
-			restoreViewState(holder);
-		} else {
-			/* Partial bind */
-			renderer.performRebindView(item, holder, payloads);
-		}
+		renderer.performBindView(item, holder);
+		restoreViewState(holder);
 
 		mBoundViewHolders.remove(holder);
 		mBoundViewHolders.add(holder);
