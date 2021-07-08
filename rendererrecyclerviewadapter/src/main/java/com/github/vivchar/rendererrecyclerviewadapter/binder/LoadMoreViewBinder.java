@@ -34,6 +34,7 @@ public class LoadMoreViewBinder extends ViewBinder<LoadMoreViewModel> {
 		this(layoutID, type, context, new Binder<LoadMoreViewModel>() {
 			@Override
 			public void bindView(@NonNull final LoadMoreViewModel model,
+								 @NonNull final int position,
 			                     @NonNull final ViewFinder finder,
 			                     @NonNull final List<Object> payloads) {}
 		});
@@ -58,6 +59,7 @@ public class LoadMoreViewBinder extends ViewBinder<LoadMoreViewModel> {
 		this(layoutID, type, new Binder<LoadMoreViewModel>() {
 			@Override
 			public void bindView(@NonNull final LoadMoreViewModel model,
+								 @NonNull final int position,
 			                     @NonNull final ViewFinder finder,
 			                     @NonNull final List<Object> payloads) {}
 		});
