@@ -11,9 +11,9 @@ import java.util.List;
 public abstract class BinderAdapter <M> implements ViewBinder.Binder<M> {
 
 	@Override
-	public void bindView(@NonNull final M model, @NonNull final ViewFinder finder, @NonNull final List<Object> payloads) {
-		bindView(model, finder);
+	public void bindView(@NonNull final M model, @NonNull final int position, @NonNull final ViewFinder finder, @NonNull final List<Object> payloads) {
+		bindView(model, position, finder);
 	}
 
-	public void bindView(@NonNull final M model, @NonNull final ViewFinder finder) {}
+	public void bindView(@NonNull final M model, @NonNull final int position, @NonNull final ViewFinder finder) {}
 }

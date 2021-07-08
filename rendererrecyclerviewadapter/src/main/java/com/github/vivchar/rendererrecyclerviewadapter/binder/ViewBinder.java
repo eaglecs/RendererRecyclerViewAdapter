@@ -76,14 +76,14 @@ public class ViewBinder <M extends ViewModel> extends ViewRenderer<M, ViewHolder
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public void bindView(@NonNull final M model, @NonNull final ViewHolder finder) {
-		mBinder.bindView(model, finder.getViewFinder(), new ArrayList<>());
+	public void bindView(@NonNull final M model, @NonNull final int position, @NonNull final ViewHolder finder) {
+		mBinder.bindView(model, position, finder.getViewFinder(), new ArrayList<>());
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public void rebindView(@NonNull final M model, @NonNull final ViewHolder finder, @NonNull final List<Object> payloads) {
-		mBinder.bindView(model, finder.getViewFinder(), payloads);
+	public void rebindView(@NonNull final M model, @NonNull final int position, @NonNull final ViewHolder finder, @NonNull final List<Object> payloads) {
+		mBinder.bindView(model, position, finder.getViewFinder(), payloads);
 	}
 
 	@Nullable
@@ -105,6 +105,6 @@ public class ViewBinder <M extends ViewModel> extends ViewRenderer<M, ViewHolder
 
 	public interface Binder <M> {
 
-		void bindView(@NonNull M model, @NonNull ViewFinder finder, @NonNull final List<Object> payloads);
+		void bindView(@NonNull M model, @NonNull final int position, @NonNull ViewFinder finder, @NonNull final List<Object> payloads);
 	}
 }

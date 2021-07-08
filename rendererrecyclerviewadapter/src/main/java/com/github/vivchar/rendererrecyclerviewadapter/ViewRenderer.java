@@ -53,14 +53,14 @@ public abstract class ViewRenderer <M extends ViewModel, VH extends ViewHolder> 
 		return createViewHolder(parent);
 	}
 
-	protected void performRebindView(@NonNull final M model, @NonNull final VH holder, @NonNull final List<Object> payloads) {
-		rebindView(model, holder, payloads);
+	protected void performRebindView(@NonNull final M model, @NonNull final int position, @NonNull final VH holder, @NonNull final List<Object> payloads) {
+		rebindView(model, position, holder, payloads);
 	}
 
-	protected void performBindView(@NonNull final M model, @NonNull final VH holder) {
+	protected void performBindView(@NonNull final M model, @NonNull final int position, @NonNull final VH holder) {
 		holder.setType(model.getClass());
 		holder.setViewStateID(createViewStateID(model));
-		bindView(model, holder);
+		bindView(model, position, holder);
 	}
 
 	/**
@@ -72,8 +72,8 @@ public abstract class ViewRenderer <M extends ViewModel, VH extends ViewHolder> 
 	 * @param holder   your a ViewHolder
 	 * @param payloads your payload
 	 */
-	public void rebindView(@NonNull final M model, @NonNull final VH holder, @NonNull final List<Object> payloads) {
-		bindView(model, holder);
+	public void rebindView(@NonNull final M model, @NonNull final int position, @NonNull final VH holder, @NonNull final List<Object> payloads) {
+		bindView(model, position, holder);
 	}
 
 	/**
@@ -82,7 +82,7 @@ public abstract class ViewRenderer <M extends ViewModel, VH extends ViewHolder> 
 	 * @param model  your a ViewModel
 	 * @param holder your a ViewHolder
 	 */
-	public abstract void bindView(@NonNull M model, @NonNull VH holder);
+	public abstract void bindView(@NonNull M model, @NonNull final int position, @NonNull VH holder);
 
 	@NonNull
 	public abstract VH createViewHolder(ViewGroup parent);

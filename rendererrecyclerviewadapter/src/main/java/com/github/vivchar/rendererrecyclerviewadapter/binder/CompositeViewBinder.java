@@ -94,7 +94,7 @@ public class CompositeViewBinder <M extends CompositeViewModel> extends Composit
 	                           @NonNull final Context context) {
 		this(layoutID, recyclerViewID, type, context, new ViewBinder.Binder<M>() {
 			@Override
-			public void bindView(@NonNull final M model, @NonNull final ViewFinder finder, @NonNull final List<Object> payloads) {}
+			public void bindView(@NonNull final M model, @NonNull final int position, @NonNull final ViewFinder finder, @NonNull final List<Object> payloads) {}
 		});
 	}
 
@@ -180,7 +180,7 @@ public class CompositeViewBinder <M extends CompositeViewModel> extends Composit
 	                           @NonNull final Class<M> type) {
 		this(layoutID, recyclerViewID, type, new ViewBinder.Binder<M>() {
 			@Override
-			public void bindView(@NonNull final M model, @NonNull final ViewFinder finder, @NonNull final List<Object> payloads) {}
+			public void bindView(@NonNull final M model, @NonNull final int position, @NonNull final ViewFinder finder, @NonNull final List<Object> payloads) {}
 		});
 	}
 
@@ -211,15 +211,15 @@ public class CompositeViewBinder <M extends CompositeViewModel> extends Composit
 	}
 
 	@Override
-	public void bindView(@NonNull final M model, @NonNull final CompositeViewHolder holder) {
-		super.bindView(model, holder);
-		mBinder.bindView(model, holder.getViewFinder(), new ArrayList<>());
+	public void bindView(@NonNull final M model, @NonNull final int position, @NonNull final CompositeViewHolder holder) {
+		super.bindView(model, position, holder);
+		mBinder.bindView(model, position, holder.getViewFinder(), new ArrayList<>());
 	}
 
 	@Override
-	public void rebindView(@NonNull final M model, @NonNull final CompositeViewHolder holder, @NonNull final List<Object> payloads) {
-		super.rebindView(model, holder, payloads);
-		mBinder.bindView(model, holder.getViewFinder(), payloads);
+	public void rebindView(@NonNull final M model, @NonNull final int position, @NonNull final CompositeViewHolder holder, @NonNull final List<Object> payloads) {
+		super.rebindView(model, position, holder, payloads);
+		mBinder.bindView(model, position, holder.getViewFinder(), payloads);
 	}
 
 	@NonNull

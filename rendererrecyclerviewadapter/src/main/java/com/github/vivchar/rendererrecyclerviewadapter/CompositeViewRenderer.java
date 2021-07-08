@@ -53,7 +53,7 @@ public abstract class CompositeViewRenderer <M extends CompositeViewModel, VH ex
 	}
 
 	@Override
-	public void bindView(@NonNull final M model, @NonNull final VH holder) {
+	public void bindView(@NonNull final M model, @NonNull final int position, @NonNull final VH holder) {
 		holder.getAdapter().setItems(model.getItems());
 		holder.getAdapter().notifyDataSetChanged();
 	}
