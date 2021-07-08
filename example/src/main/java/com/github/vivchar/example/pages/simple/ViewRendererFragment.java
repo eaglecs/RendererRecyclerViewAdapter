@@ -55,7 +55,7 @@ public class ViewRendererFragment extends BaseScreenFragment {
 		}
 
 		@Override
-		public void bindView(@NonNull final RectViewModel model, @NonNull final RectViewHolder holder) {
+		public void bindView(@NonNull final RectViewModel model, @NonNull final int position, @NonNull final RectViewHolder holder) {
 			holder.textView.setText(model.getText());
 		}
 

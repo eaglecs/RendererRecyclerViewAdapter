@@ -30,14 +30,14 @@ public class RecyclerViewRenderer extends CompositeViewRenderer<RecyclerViewMode
 	}
 
 	@Override
-	public void rebindView(@NonNull final RecyclerViewModel model, @NonNull final RecyclerViewHolder holder, @NonNull final List<Object> payloads) {
+	public void rebindView(@NonNull final RecyclerViewModel model, @NonNull final int position, @NonNull final RecyclerViewHolder holder, @NonNull final List<Object> payloads) {
 		Log.d(TAG, "rebindView " + model.toString() + ", payload: " + payloads.toString());
 		holder.getAdapter().enableDiffUtil();
 		holder.getAdapter().setItems(model.getItems());
 	}
 
 	@Override
-	public void bindView(@NonNull final RecyclerViewModel model, @NonNull final RecyclerViewHolder holder) {
+	public void bindView(@NonNull final RecyclerViewModel model, @NonNull final int position, @NonNull final RecyclerViewHolder holder) {
 		Log.d(TAG, "bindView " + model.toString());
 		holder.getAdapter().disableDiffUtil();
 		holder.getAdapter().setItems(model.getItems());

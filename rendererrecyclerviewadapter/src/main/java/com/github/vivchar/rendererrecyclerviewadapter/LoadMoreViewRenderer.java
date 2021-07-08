@@ -22,7 +22,7 @@ public class LoadMoreViewRenderer extends ViewRenderer<LoadMoreViewModel, LoadMo
 	}
 
 	@Override
-	public void bindView(@NonNull final LoadMoreViewModel model, @NonNull final LoadMoreViewHolder holder) {}
+	public void bindView(@NonNull final LoadMoreViewModel model, @NonNull final int position, @NonNull final LoadMoreViewHolder holder) {}
 
 	@NonNull
 	@Override

@@ -34,13 +34,14 @@ public class StargazerViewRenderer extends ViewRenderer<StargazerModel, Stargaze
 	}
 
 	@Override
-	public void bindView(@NonNull final StargazerModel model, @NonNull final StargazerViewHolder holder) {
+	public void bindView(@NonNull final StargazerModel model, @NonNull final int position, @NonNull final StargazerViewHolder holder) {
 		Log.d(TAG, "bindView " + model.toString());
 		bindInner(model, holder);
 	}
 
 	@Override
 	public void rebindView(@NonNull final StargazerModel model,
+						   @NonNull final int position,
 	                       @NonNull final StargazerViewHolder holder,
 	                       @NonNull final List<Object> payloads) {
 		Log.d(TAG, "bindView " + model.toString());

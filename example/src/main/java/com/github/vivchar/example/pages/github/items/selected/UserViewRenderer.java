@@ -24,7 +24,7 @@ public class UserViewRenderer extends ViewRenderer<StargazerModel, UserViewHolde
 	}
 
 	@Override
-	public void bindView(@NonNull final StargazerModel model, @NonNull final UserViewHolder holder) {
+	public void bindView(@NonNull final StargazerModel model, @NonNull final int position, @NonNull final UserViewHolder holder) {
 		holder.name.setText(model.getName());
 
 //		final RequestOptions options = new RequestOptions();

@@ -28,7 +28,7 @@ public class ForkViewRenderer extends ViewRenderer<ForkModel, ForkViewHolder> {
 	}
 
 	@Override
-	public void bindView(@NonNull final ForkModel model, @NonNull final ForkViewHolder holder) {
+	public void bindView(@NonNull final ForkModel model, @NonNull final int position, @NonNull final ForkViewHolder holder) {
 		holder.name.setText(model.getName());
 
 //		final RequestOptions options = new RequestOptions();

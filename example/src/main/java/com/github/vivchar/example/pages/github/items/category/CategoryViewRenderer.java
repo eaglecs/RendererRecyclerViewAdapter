@@ -22,7 +22,7 @@ public class CategoryViewRenderer extends ViewRenderer<CategoryModel, CategoryVi
 	}
 
 	@Override
-	public void bindView(@NonNull final CategoryModel model, @NonNull final CategoryViewHolder holder) {
+	public void bindView(@NonNull final CategoryModel model, @NonNull final int position, @NonNull final CategoryViewHolder holder) {
 		holder.mName.setText(model.getName());
 		holder.mViewAll.setOnClickListener(v -> mListener.onCategoryClicked(model));
 	}
