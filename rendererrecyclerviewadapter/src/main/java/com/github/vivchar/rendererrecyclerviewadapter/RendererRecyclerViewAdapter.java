@@ -349,9 +349,12 @@ public class RendererRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder
 			} else {
 				mMainThreadExecutor.execute(new Runnable() {
 					public void run() {
-						mItems.remove(mLoadMorePosition);
-						notifyItemRemoved(mLoadMorePosition);
-						mLoadMoreVisible = false;
+						if (mItems.size() > mLoadMorePosition){
+							mItems.remove(mLoadMorePosition);
+							notifyItemRemoved(mLoadMorePosition);
+							mLoadMoreVisible = false;
+
+						}
 					}
 				});
 			}
