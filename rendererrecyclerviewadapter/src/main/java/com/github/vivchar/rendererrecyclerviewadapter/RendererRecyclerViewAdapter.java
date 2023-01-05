@@ -72,8 +72,12 @@ public class RendererRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder
 	private Bundle mSavedInstanceState;
 
 	private boolean mSubmitting = false;
+	private boolean mIsLoop = false;
 
 	public RendererRecyclerViewAdapter() {}
+	public RendererRecyclerViewAdapter(Boolean isLoop) {
+		mIsLoop = isLoop;
+	}
 
 	@Deprecated
 	public RendererRecyclerViewAdapter(@NonNull final Context context) {}
@@ -93,16 +97,20 @@ public class RendererRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder
 	@Override
 	public void onBindViewHolder(final ViewHolder holder, final int position, @Nullable final List payloads) {
 		super.onBindViewHolder(holder, position, payloads);
-		final ViewModel item = getItem(position);
+		int positionItem = position;
+		if(mIsLoop) {
+			positionItem = position % mItems.size();
+		}
+		final ViewModel item = getItem(positionItem);
 		final ViewRenderer renderer = getRenderer(item);
 
 		if (payloads == null || payloads.isEmpty()) {
 			/* Full bind */
-			renderer.performBindView(item, position, holder);
+			renderer.performBindView(item, positionItem, holder);
 			restoreViewState(holder);
 		} else {
 			/* Partial bind */
-			renderer.performRebindView(item, position, holder, payloads);
+			renderer.performRebindView(item, positionItem, holder, payloads);
 		}
 
 		mBoundViewHolders.remove(holder);
@@ -195,7 +203,11 @@ public class RendererRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder
 
 	@Override
 	public int getItemCount() {
-		return getReadOnlyItems().size();
+		int itemCount = getReadOnlyItems().size();
+		if (mIsLoop){
+			itemCount = Integer.MAX_VALUE;
+		}
+		return itemCount;
 	}
 
 	public void enableDiffUtil() {

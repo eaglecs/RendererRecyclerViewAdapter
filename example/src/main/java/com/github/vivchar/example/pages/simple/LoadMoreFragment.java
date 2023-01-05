@@ -47,9 +47,9 @@ public class LoadMoreFragment extends BaseScreenFragment {
 
 //		mAdapter.setLoadMoreModel(new YourLoadMoreModel()); /* you can change the LoadMoreModel if needed */
 		mAdapter.registerRenderer(new LoadMoreViewBinder(R.layout.item_load_more));
-		mAdapter.registerRenderer(new ViewBinder<>(R.layout.item_simple_square, SimpleViewModel.class,
-				(model, finder, payloads) -> finder.setText(R.id.text, model.getText())
-		));
+//		mAdapter.registerRenderer(new ViewBinder<>(R.layout.item_simple_square, SimpleViewModel.class,
+//				(model, finder, payloads) -> finder.setText(R.id.text, model.getText())
+//		));
 //		adapter.registerRenderer(...);
 //		adapter.registerRenderer(...);
 
