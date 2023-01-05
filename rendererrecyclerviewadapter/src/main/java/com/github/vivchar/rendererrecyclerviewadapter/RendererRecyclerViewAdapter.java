@@ -159,7 +159,7 @@ public class RendererRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder
 		if(mIsLoop) {
 			positionItem = position % mItems.size();
 		}
-		final ViewModel model = getItem(position);
+		final ViewModel model = getItem(positionItem);
 		return getTypeIndex(model);
 	}
 
