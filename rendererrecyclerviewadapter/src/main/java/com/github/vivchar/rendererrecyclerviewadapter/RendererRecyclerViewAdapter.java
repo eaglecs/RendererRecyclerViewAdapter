@@ -155,6 +155,10 @@ public class RendererRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder
 	}
 
 	protected int getTypeIndex(final int position) {
+		int positionItem = position;
+		if(mIsLoop) {
+			positionItem = position % mItems.size();
+		}
 		final ViewModel model = getItem(position);
 		return getTypeIndex(model);
 	}
